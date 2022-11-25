@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Double Landingpage</title>
+    <style>
+
+body{
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+h1{
+    font-size: 100px; 
+    color: aliceblue;
+    backdrop-filter: brightness(.5);
+    letter-spacing: 2px;
+}
+.btn{
+    background-color: black;
+    color: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    font-size: 25px;
+    border: 4px solid;
+    cursor: pointer;
+    transition: 1s background-color;
+    white-space: nowrap;
+}
+.btn:hover{
+    background-color: white;
+    color: black;
+}
+.split{
+    width: 50%;
+    height: 100%;
+    top: 0;
+    overflow: hidden;
+}
+.split.left{
+    position: absolute;
+   left: 0;
+   background-color: pink;
+   background-image: url("https://media.vogue.fr/photos/6141eeeb71e12c002938145d/master/pass/iphone-13-pro-family-hero.png");
+ background-size: cover;
+}
+.split.right{
+    position: absolute;
+   right: 0;
+   background-color: lightskyblue;
+   background-image: url("https://images.samsung.com/is/image/samsung/p6pim/in/sm-g990ezaginu/gallery/in-galaxy-s21-fe-g990-sm-g990ezaginu-thumb-530606564");
+   background-size: cover;
+}
+.active-left .left{
+width: 75%;
+}
+.active-left .right{
+width: 25%;
+}
+.active-right .left{
+    width: 25%;
+}
+.active-right .right{
+    width: 75%;
+}
+.left , .right{
+    transition: width 2s ease-in-out;
+}
+    </style>
+</head>
+
+<body>
+    
+    <div class="container">
+   <div class="split left">
+   <h1>Apple</h1>
+    <button class="btn">Buy Now</button>
+        </div>
+  <div class="split right">
+  <h1>Samsung</h1>
+ <button class="btn">Buy Now</button>
+        </div>
+    </div>
+
+</body>
+
+
+<script>
+const containerE1= document.querySelector(".container")
+ 
+const leftE1 = document.querySelector(".left")
+const rightE1 = document.querySelector(".right")
+
+leftE1.addEventListener("mouseenter",()=>{
+    containerE1.classList.add("active-left")
+})
+leftE1.addEventListener("mouseleave",()=>{
+    containerE1.classList.remove("active-left")
+})
+
+
+rightE1.addEventListener("mouseenter",()=>{
+    containerE1.classList.add("active-right")
+})
+rightE1.addEventListener("mouseleave",()=>{
+    containerE1.classList.remove("active-right")
+})
+
+</script>
+</html>
